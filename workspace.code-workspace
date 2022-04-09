@@ -1,0 +1,51 @@
+{
+	"folders": [
+		{
+			"path": "..\\Final"
+		},
+		{
+			"path": "..\\Lab13-3"
+		},
+		{
+			"path": "..\\Lab13-4"
+		},
+		{
+			"path": "..\\Lab13-5"
+		},
+		{
+			"path": "..\\Pro ject"
+		},
+		{
+			"path": "..\\Project1"
+		},
+		{
+			"path": "..\\Project2"
+		},
+		{
+			"path": "..\\Project3"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"iostream": "cpp",
+			"random": "cpp",
+			"ostream": "cpp",
+			"array": "cpp",
+			"deque": "cpp",
+			"forward_list": "cpp",
+			"list": "cpp",
+			"string": "cpp",
+			"unordered_map": "cpp",
+			"unordered_set": "cpp",
+			"vector": "cpp",
+			"string_view": "cpp",
+			"initializer_list": "cpp",
+			"ranges": "cpp",
+			"span": "cpp",
+			"regex": "cpp",
+			"valarray": "cpp",
+			"*.tcc": "cpp",
+			"ctime": "cpp"
+		}
+	}
+}
