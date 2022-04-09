@@ -10,6 +10,7 @@ int main(){
     p->eat();
     p->PrintInf();
     p1->eat();
+    cout << "----------" << endl;
     p1->PrintInf();
     p1->fight(*p);
     p1->PrintInf();
