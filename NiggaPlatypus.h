@@ -6,7 +6,6 @@ class NiggaPlatypus : public Platypus{
 public:
     NiggaPlatypus();
     NiggaPlatypus(float weight, short age, string name, char gender);
-    NiggaPlatypus(const Platypus & bp);
     const Platypus &hatch();
     void RunNiggaRun() override;
     void fight(Platypus & other) override;

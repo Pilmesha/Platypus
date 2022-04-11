@@ -15,6 +15,7 @@ BasicPlatypus::BasicPlatypus(float weight, short age, string name, char gender){
     alive = true;
     mutant = false;
 }
+
 const Platypus &BasicPlatypus::hatch(){
     cout << "Basic platypus has been born" << endl;
     alive = true;
