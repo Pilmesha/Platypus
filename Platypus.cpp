@@ -219,7 +219,7 @@ void Platypus::fight(Platypus & other){
            other.alive = false;
            other.setHealth(0); other.setEnergy(0);
            this->RandEnergy();
-       } else if(this->getHealth() <= 0){         
+       } else if(this->getHealth() < other.getHealth()){         
             cout << other.name << " won" << endl;
            this->alive = false;
            this->setHealth(0);this->setEnergy(0);
@@ -237,6 +237,7 @@ const Platypus &Platypus::attack(Platypus & other_platypus){
     uniform_int_distribution<short> gen(1, 10);
     cout << this->name << " attacks " << other_platypus.name << endl;
     other_platypus.setHealth(other_platypus.health -= (gen(dre) * fight_ratio));
+    this->setHealth(this->health -= (gen(dre) * fight_ratio));
     return other_platypus;
 }
 

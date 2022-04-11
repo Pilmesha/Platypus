@@ -75,5 +75,7 @@ const Platypus &NiggaPlatypus::attack(Platypus & other_platypus){
     cout << this->getName() << " attacks " << other_platypus.getName() << endl;
     short oh = other_platypus.getHealth();
     other_platypus.setHealth(oh -= (gen(dre) * fight_ratio));
+    short oh1 = this->getHealth();
+    this->setHealth(oh1 -= (gen(dre) * fight_ratio));
     return other_platypus;
 }
