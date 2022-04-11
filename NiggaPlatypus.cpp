@@ -68,7 +68,7 @@ void NiggaPlatypus::fight(Platypus &other){
        }
 }
 }
-const Platypus &NiggaPlatypus::attack(Platypus & other_platypus){
+const void NiggaPlatypus::attack(Platypus & other_platypus){
     short fight_ratio = ((this->getWeight()*this->getEnergy())/(other_platypus.getWeight()*other_platypus.getEnergy()));
     default_random_engine dre(time(0));
     uniform_int_distribution<short> gen(1, 5);
@@ -77,5 +77,5 @@ const Platypus &NiggaPlatypus::attack(Platypus & other_platypus){
     other_platypus.setHealth(oh -= (gen(dre) * fight_ratio));
     short oh1 = this->getHealth();
     this->setHealth(oh1 -= (gen(dre) * fight_ratio));
-    return other_platypus;
+    //return other_platypus;
 }

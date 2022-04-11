@@ -3,10 +3,13 @@
 #include "NiggaPlatypus.h"
 int main(){
     Platypus *p, *p1;
-    BasicPlatypus bp(1, 6, "momo", 'm'), np(0.1, 5, "keke", 'm');
+    BasicPlatypus bp, np;
     p = &bp;
     p1 = &np;
+    p->hatch();
     p->eat();
+    p->eat();
+    p1->hatch();
     p1->eat();
     p1->fight(*p);
     p->PrintInf();
