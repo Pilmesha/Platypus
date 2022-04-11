@@ -1,4 +1,5 @@
 #include "NiggaPlatypus.h"
+
 NiggaPlatypus::NiggaPlatypus(){
     setType("Nigga");
 }
@@ -13,8 +14,14 @@ NiggaPlatypus::NiggaPlatypus(float weight, short age, string name, char gender){
     alive = true;
     mutant = false;
 }
-NiggaPlatypus::NiggaPlatypus(const Platypus &BasicPlatypus){}
-
+NiggaPlatypus::NiggaPlatypus(const Platypus &bp){
+    this->setWeight(bp.getWeight());
+    this->setAge(bp.getAge());
+    this->setName(bp.getName());
+    this->setGender(bp.getGender());
+    //this->setHealth(bp.getHealth());
+    //this->setEnergy(bp.getEnergy());
+}
 const Platypus &NiggaPlatypus::hatch(){
     cout << "Black platypus has been born" << endl;
     alive = true;

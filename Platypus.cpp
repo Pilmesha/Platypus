@@ -164,7 +164,7 @@ bool Platypus::isAlive()const{
 bool Platypus::isMutant()const{
     return mutant;
 }
-void Platypus::setType(const string& newType){
+void Platypus::setType(const string & newType){
     this->type = newType;
 }
 string Platypus:: getType() const{

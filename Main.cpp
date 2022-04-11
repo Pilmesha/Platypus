@@ -1,18 +1,10 @@
 #include "Platypus.h"
 #include "BasicPlatypus.h"
-
+#include "NiggaPlatypus.h"
 int main(){
     Platypus *p, *p1;
-    BasicPlatypus P(0.69, 3, "Keke", 'm');
-    NiggaPlatypus P1(0.69, 3, "NigGio", 'm');
-    p1 = &P1;
-    p = &P;
-    p->eat();
-    p->PrintInf();
-    p1->eat();
-    cout << "----------" << endl;
-    p1->PrintInf();
-    p1->fight(*p);
-    p1->PrintInf();
+    BasicPlatypus bp;
+    p = &bp;
+    p->hatch();
     p->PrintInf();
 }

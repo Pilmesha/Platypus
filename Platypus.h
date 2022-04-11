@@ -1,4 +1,6 @@
 #pragma once
+#ifndef PLATYPUS_H
+#define PLATYPUS_H
 #include <iostream>
 #include <fstream>
 #include <random>
@@ -9,7 +11,6 @@ using namespace std;
 #define MAX_WEIGHT 10.0f
 #define MAX_HEALTH 100
 #define MAX_ENERGY 100
-
 class Platypus{
 private:
     float weight; //kilograms
@@ -44,7 +45,7 @@ public:
     void setAlive(bool st);
     bool isAlive() const;
     bool isMutant() const;
-    void setType(const string& newType);
+    void setType(const string & newType);
     string getType() const;
     /////////////////////////////
     void PrintInf() const;
@@ -64,3 +65,4 @@ public:
     virtual const Platypus &hatch() = 0;
     virtual void RunNiggaRun();
 };
+#endif
