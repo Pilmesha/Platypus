@@ -231,14 +231,14 @@ void Platypus::fight(Platypus & other){
     else cout << "One of the platypuses are dead" << endl;
 
 }
-const void Platypus::attack(Platypus & other_platypus){
+const Platypus &Platypus::attack(Platypus & other_platypus){
     short fight_ratio = ((this->getWeight()*this->getEnergy())/(other_platypus.getWeight()*other_platypus.getEnergy()));
     default_random_engine dre(time(0));
     uniform_int_distribution<short> gen(1, 10);
     cout << this->name << " attacks " << other_platypus.name << endl;
     other_platypus.setHealth(other_platypus.health -= (gen(dre) * fight_ratio));
     this->setHealth(this->health -= (gen(dre) * fight_ratio));
-    //return other_platypus;
+    return other_platypus;
 }
 
 void Platypus::RunNiggaRun(){

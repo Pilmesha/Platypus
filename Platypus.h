@@ -52,7 +52,7 @@ public:
     /////////////////////////////
     void age_me();
     virtual void fight(Platypus & other);
-    virtual const void attack(Platypus & other_platypus);
+    virtual const Platypus &attack(Platypus & other_platypus);
     void eat();
     /////////////////////////////
     void DeathChance();

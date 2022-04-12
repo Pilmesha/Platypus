@@ -9,8 +9,10 @@ int main(){
     p->hatch();
     p->eat();
     p->eat();
+    p->PrintInf();
     p1->hatch();
     p1->eat();
+    p1->PrintInf();
     p1->fight(*p);
     p->PrintInf();
     p1->PrintInf();

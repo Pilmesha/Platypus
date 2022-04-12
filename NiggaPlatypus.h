@@ -9,6 +9,6 @@ public:
     const Platypus &hatch();
     void RunNiggaRun() override;
     void fight(Platypus & other) override;
-    virtual const void attack(Platypus & other_platypus) override;
+    virtual const Platypus &attack(Platypus & other_platypus) override;
 };
 #endif
