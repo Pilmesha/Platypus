@@ -170,7 +170,9 @@ void Platypus::setType(const string & newType){
 string Platypus:: getType() const{
     return type;
 }
-
+void Platypus::isDead(Platypus & p){
+    p.setHealth(0); p.setEnergy(0); p.alive = false;
+}
 
 //////MAIN FUNCTIONS
 void Platypus::age_me(){
@@ -208,39 +210,34 @@ void Platypus::eat(){
     } else cout << "Dead platypus can not eat" << endl;
 }
 
-void Platypus::fight(Platypus & other){
-   if((this->alive && other.alive) && (this->getEnergy() != 0 && other.getEnergy() != 0)){
-       while(this->getHealth() > 0 && other.getHealth() > 0){
-       this->attack(other);
-       other.attack(*this);
-       }
-       if(other.getHealth() <= 0){
-           cout << this->name << " won" << endl;
-           other.alive = false;
-           other.setHealth(0); other.setEnergy(0);
-           this->RandEnergy();
-       } else if(this->getHealth() < other.getHealth()){         
-            cout << other.name << " won" << endl;
-           this->alive = false;
-           this->setHealth(0);this->setEnergy(0);
-           other.RandEnergy();
-       }
-}
-   else 
+void Platypus:: fight(Platypus & other){
+    if((this->health != 0 && other.health != 0) && (this->energy && other.energy)){
+    while((this->health > 0 && other.health > 0)){
+        this->attack(other);
+        other.attack(*this);
+    }
+    if(other.health <= 0){
+        isDead(other);
+        cout << this->name << " won"<< endl;
+        this->RandEnergy();
+    } else if(this->health <= 0){
+        isDead(*this);
+        cout << other.name << " won" << endl;
+        other.RandEnergy();
+    }
+    } else 
     if(this-> getEnergy() == 0 || other.getEnergy() == 0) cout << "One of the platypuses do not have enough energy" << endl;
     else cout << "One of the platypuses are dead" << endl;
-
 }
-const Platypus &Platypus::attack(Platypus & other_platypus){
-    short fight_ratio = ((this->getWeight()*this->getEnergy())/(other_platypus.getWeight()*other_platypus.getEnergy()));
+
+const Platypus &Platypus::attack(Platypus &other_platypus){
+    const float fight_ratio = (this->weight * this->energy)/(other_platypus.weight * other_platypus.energy);
     default_random_engine dre(time(0));
-    uniform_int_distribution<short> gen(1, 10);
+    uniform_real_distribution<float> gen(1, 10);
     cout << this->name << " attacks " << other_platypus.name << endl;
     other_platypus.setHealth(other_platypus.health -= (gen(dre) * fight_ratio));
-    this->setHealth(this->health -= (gen(dre) * fight_ratio));
     return other_platypus;
 }
-
 void Platypus::RunNiggaRun(){
      cout << "Not Nigga Platypus can not run!!!" << endl;
 }

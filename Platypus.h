@@ -47,12 +47,14 @@ public:
     bool isMutant() const;
     void setType(const string & newType);
     string getType() const;
+    void isDead(Platypus & p);
     /////////////////////////////
     void PrintInf() const;
     /////////////////////////////
     void age_me();
     virtual void fight(Platypus & other);
-    virtual const Platypus &attack(Platypus & other_platypus);
+    //virtual const Platypus &attack(Platypus & other_platypus);
+    virtual const Platypus & attack(Platypus & other_platypus);
     void eat();
     /////////////////////////////
     void DeathChance();

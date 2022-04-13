@@ -2,18 +2,15 @@
 #include "BasicPlatypus.h"
 #include "NiggaPlatypus.h"
 int main(){
-    Platypus *p, *p1;
-    BasicPlatypus bp, np;
-    p = &bp;
-    p1 = &np;
-    p->hatch();
-    p->eat();
-    p->eat();
-    p->PrintInf();
-    p1->hatch();
-    p1->eat();
-    p1->PrintInf();
-    p1->fight(*p);
-    p->PrintInf();
-    p1->PrintInf();
+    BasicPlatypus bp;
+    BasicPlatypus np;
+    bp.hatch();
+    bp.eat();
+    bp.PrintInf();
+    np.hatch();
+    np.eat();
+    np.PrintInf();
+    np.fight(bp);
+    bp.PrintInf();
+    np.PrintInf();
 }

@@ -48,34 +48,32 @@ void NiggaPlatypus::RunNiggaRun(){
     } else cout << "Dead Nigga can not run" << endl;
 }
 void NiggaPlatypus::fight(Platypus &other){
+    const float fight_ratio = ((this->getWeight()*this->getEnergy())/(other.getWeight()*other.getEnergy()));
     if((this->alive && other.isAlive()) && (this->getEnergy() != 0 && other.getEnergy() != 0)){
        while(this->getHealth() > 0 && other.getHealth() > 0){
        this->attack(other);
        this->attack(other);
        other.attack(*this);
        }
-       if(other.getHealth() <= 0){
-           cout << this->getName() << " won" << endl;
-           other.setAlive(false);
-           other.setHealth(0); other.setEnergy(0);
-           this->setHealth(abs(getHealth()));
-           this->RandEnergy();
-       } else if(this->getHealth() <= 0){         
-            cout << other.getName() << " won" << endl;
-           this->alive = false;
-           this->setHealth(0);this->setEnergy(0);
-           other.RandEnergy();
-       }
-}
+    if(other.getHealth() <= 0){
+        isDead(other);
+        cout << this->getName() << " won"<< endl;
+        this->RandEnergy();
+    } else if(this->getHealth() <= 0){
+        isDead(*this);
+        cout << other.getName() << " won" << endl;
+        other.RandEnergy();
+    }
+    } else 
+    if(this-> getEnergy() == 0 || other.getEnergy() == 0) cout << "One of the platypuses do not have enough energy" << endl;
+    else cout << "One of the platypuses are dead" << endl;
 }
 const Platypus &NiggaPlatypus::attack(Platypus & other_platypus){
-    short fight_ratio = ((this->getWeight()*this->getEnergy())/(other_platypus.getWeight()*other_platypus.getEnergy()));
+    float fight_ratio = ((this->getWeight()*this->getEnergy())/(other_platypus.getWeight()*other_platypus.getEnergy()));
     default_random_engine dre(time(0));
     uniform_int_distribution<short> gen(1, 5);
     cout << this->getName() << " attacks " << other_platypus.getName() << endl;
     short oh = other_platypus.getHealth();
     other_platypus.setHealth(oh -= (gen(dre) * fight_ratio));
-    short oh1 = this->getHealth();
-    this->setHealth(oh1 -= (gen(dre) * fight_ratio));
     return other_platypus;
 }
