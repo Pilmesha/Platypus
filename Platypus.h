@@ -53,13 +53,12 @@ public:
     /////////////////////////////
     void age_me();
     virtual void fight(Platypus & other);
-    //virtual const Platypus &attack(Platypus & other_platypus);
     virtual const Platypus & attack(Platypus & other_platypus);
-    void eat();
+    virtual void eat();
     /////////////////////////////
     void DeathChance();
     void MutantChance();
-    float RandW();
+    virtual float RandW() const;
     string RandName() const;
     void RandEnergy();
     string RandType();

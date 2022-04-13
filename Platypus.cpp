@@ -61,7 +61,7 @@ void Platypus::PrintInf() const{
 
 //Random generators for functions
 
-float Platypus::RandW(){
+float Platypus::RandW() const {
     default_random_engine dre(time(0));
     uniform_real_distribution<float> gen(0.1f, 1.5f);
     for(int i = 0; i < 5; i++) gen(dre);
