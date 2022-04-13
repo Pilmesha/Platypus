@@ -6,7 +6,7 @@ VikaPlatypus::VikaPlatypus(){
 VikaPlatypus::VikaPlatypus(float weight, short age, string name, char gender){
     setWeight(weight);
     setHealth(100);
-    setEnergy(0);
+    setEnergy(5);
     setAge(age);
     setName(name);
     setGender(gender);
@@ -26,8 +26,9 @@ void VikaPlatypus::eat(){
     if(alive && getInv() != 0){
     cout << getName() << " is eating Xachapuri...." << endl;
     float w = getWeight();
-    setInv(RandMinus());
-    setWeight(w += (w * RandW()));
+    setWeight(w += (w * RandMinus()));
+    setInv(inventory -= RandMinus());
+    
     default_random_engine dre(time(0));
     uniform_int_distribution<int> genEnergy(10, 20);
     default_random_engine dre1(time(0));
@@ -43,7 +44,7 @@ void VikaPlatypus::eat(){
     setHealth(h +=  genHealth(dre1));
     }
     if(getHealth() > MAX_HEALTH) setHealth(MAX_HEALTH);
-    } else if(!alive) cout << "Dead platypus can not eat" << endl;
+    } else if(!alive) cout << "Dead Vika can not eat" << endl;
     else cout << "You have no Xachapuri in inventory"<< endl;
 }
 float VikaPlatypus::RandW() const {
@@ -59,16 +60,16 @@ unsigned VikaPlatypus::RandInv() const{
 }
 void VikaPlatypus::setInv(unsigned newinv){
     this->inventory = newinv;
-    cout << "You have " << getInv() << " xaxhapuri in your inventory" << endl;
 }
 unsigned VikaPlatypus::getInv() const{
     return inventory;
 }
 const Platypus &VikaPlatypus::hatch(){
-    cout << "Vika platypus has been born" << endl;
+    cout << "Vika has been born" << endl;
     alive = true;
     mutant = false;
     setHealth(100);
+    setEnergy(5);
     srand(time(0));    
     setWeight(RandW());
     setName("Vika");
@@ -82,7 +83,10 @@ const Platypus &VikaPlatypus::hatch(){
     cin >> c; 
     if(c == 'y' || c == 'Y'){
         this->eat();
-    } else isDead(*this);
+    } else {
+        isDead(*this);
+        cout << "Vika died from lack of Xaxhapuri" << endl;
+    }
     return *this;
 }
 void VikaPlatypus::fight(VikaPlatypus & other){
@@ -95,12 +99,12 @@ void VikaPlatypus::fight(VikaPlatypus & other){
     if(other.getHealth() <= 0){
         isDead(other);
         cout << this->getName() << " won"<< endl;
-        this->setInv(other.getInv());
+        this->setInv(inventory += other.getInv());
         this->RandEnergy();
     } else if(this->getHealth() <= 0){
         isDead(*this);
         cout << other.getName() << " won" << endl;
-        other.setInv(this->getInv());
+        other.setInv(other.inventory += this->getInv());
         other.RandEnergy();
     }
     } else 
@@ -112,6 +116,6 @@ void VikaPlatypus::Gym(){
     cout << "Vika went to the gym" << endl;
     RandEnergy();
     setInv(RandInv());
-    }
+    } else cout << "Dead Vika can not go to gym" << endl;
 
 }
