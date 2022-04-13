@@ -3,7 +3,7 @@
 #include "NiggaPlatypus.h"
 int main(){
     BasicPlatypus bp;
-    BasicPlatypus np;
+    NiggaPlatypus np;
     bp.hatch();
     bp.eat();
     bp.PrintInf();
