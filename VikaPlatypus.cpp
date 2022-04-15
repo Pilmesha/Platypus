@@ -100,11 +100,13 @@ void VikaPlatypus::fight(VikaPlatypus & other){
         isDead(other);
         cout << this->getName() << " won"<< endl;
         this->setInv(inventory += other.getInv());
+        other.setInv(0);
         this->RandEnergy();
     } else if(this->getHealth() <= 0){
         isDead(*this);
         cout << other.getName() << " won" << endl;
         other.setInv(other.inventory += this->getInv());
+        this->setInv(0);
         other.RandEnergy();
     }
     } else 
