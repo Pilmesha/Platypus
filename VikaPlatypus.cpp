@@ -45,7 +45,10 @@ void VikaPlatypus::eat(){
     }
     if(getHealth() > MAX_HEALTH) setHealth(MAX_HEALTH);
     } else if(!alive) cout << "Dead Vika can not eat" << endl;
-    else cout << "You have no Xachapuri in inventory"<< endl;
+    else {
+        cout << "You have no Xachapuri in inventory"<< endl;
+        isDead(*this);
+    }
 }
 float VikaPlatypus::RandW() const {
     default_random_engine dre(time(0));
