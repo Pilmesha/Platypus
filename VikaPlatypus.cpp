@@ -121,6 +121,8 @@ void VikaPlatypus::Gym(){
     cout << "Vika went to the gym" << endl;
     RandEnergy();
     setInv(RandInv());
+    float w = getWeight();
+    setWeight(w -= RandW());
     } else cout << "Dead Vika can not go to gym" << endl;
 
 }

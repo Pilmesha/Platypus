@@ -10,8 +10,7 @@ Platypus::Platypus(){
     gender = '-';
     type = "Undefined";
     alive = false;
-    mutant = false;
-    
+    mutant = false; 
 }
 Platypus::Platypus(float &weight, short &age, string &name, char &gender, string &type){
     this->weight = weight;
