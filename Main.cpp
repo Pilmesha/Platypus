@@ -11,11 +11,20 @@ int main(){
         vp.Gym();
     vp.CheckInv();
     vp.PrintInf();
-    BasicPlatypus irishka;
+    VikaPlatypus irishka;
     irishka.hatch();
     irishka.eat();
-    irishka.eat();
+    irishka.Gym();
+    irishka.Gym();
+    irishka.PrintInf();
     irishka.fight(vp);
     irishka.PrintInf();
     vp.PrintInf();
+    NiggaPlatypus np;
+    np.hatch();
+    np.PrintInf();
+    np.RunNiggaRun();
+    np.RunNiggaRun();
+    np.RunNiggaRun();
+    np.PrintInf();
 }
